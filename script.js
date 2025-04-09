@@ -397,29 +397,46 @@ function updateMetrics() {
 /**
  * Initialize contact form handling
  */
+/**
+ * Initialize contact form handling
+ */
 function initFormHandling(form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         const submitButton = form.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.innerHTML;
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitButton.disabled = true;
-        
+
+        const formData = {
+            name: form.elements['name'].value,
+            email: form.elements['email'].value,
+            subject: form.elements['subject'].value,
+            message: form.elements['message'].value
+        };
+
         try {
-            // Simulated form submission - in production replace with actual API call
-            // const formData = new FormData(form);
-            // const formValues = Object.fromEntries(formData.entries());
-            
-            // Simulated API response delay
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Success message
-            alert('Thank you for your message! I will get back to you soon.');
-            form.reset();
+            const res = await fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                alert("Thank you for your message! I will get back to you soon.");
+                form.reset();
+            } else {
+                alert("Failed to send message. Please try again or contact me directly.");
+            }
+
         } catch (error) {
-            console.error('Error:', error);
-            alert('Failed to send message. Please try again or contact me directly via email.');
+            console.error("Error:", error);
+            alert("Something went wrong while sending your message.");
         } finally {
             submitButton.innerHTML = originalButtonText;
             submitButton.disabled = false;

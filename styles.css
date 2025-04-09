@@ -215,7 +215,8 @@ section {
   font-size: 1.5rem;
   color: transparent;
   background: linear-gradient(135deg, #3b82f6, #2563eb);
-  -webkit-background-clip: text;
+-webkit-background-clip: text;
+background-clip: text;
   background-clip: text;
   text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
 }
@@ -1506,3 +1507,35 @@ section {
         page-break-inside: avoid;
     }
 }
+
+/* ============================
+   LaForceIT.com Logo Styling
+   ============================ */
+
+.logo-text-glow {
+font-weight: 800;
+font-size: 1.6rem;
+background: linear-gradient(90deg, var(--accent), var(--accent-darker));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+transition: all 0.3s ease-in-out;
+}
+
+.logo-dot-glow {
+color: white;
+font-weight: 600;
+font-size: 1.6rem;
+margin-left: 2px;
+text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+transition: all 0.3s ease-in-out;
+}
+
+.logo-text-glow:hover,
+.logo-dot-glow:hover {
+text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 8px rgba(255, 255, 255, 0.3);
+transform: scale(1.02);
+}
+
+
