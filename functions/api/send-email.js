@@ -1,6 +1,4 @@
-import { Resend } from 'resend';
-
-/**
+**
  * Cloudflare Pages Function - /api/send-email
  */
 export async function onRequestPost(context) {
