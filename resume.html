@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel LaForce | Resume</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional resume of Daniel LaForce - Systems & Infrastructure Engineer specializing in virtualization, containerization, and secure network architecture.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f172a%22></rect><path fill=%22%233b82f6%22 d=%22M30 40L50 20L70 40L50 60L30 40Z%22></path><path fill=%22%233b82f6%22 d=%22M50 60L70 40L70 70L50 90L30 70L30 40L50 60Z%22 fill-opacity=%220.6%22></path></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Resume-specific styles */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 6rem auto 4rem;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+        
+        .resume-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .resume-name {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resume-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .resume-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .resume-contact-item {
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+        }
+        
+        .resume-contact-item i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .resume-section {
+            margin-bottom: 2.5rem;
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        
+        .resume-section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .resume-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-gradient);
+            border-radius: 3px;
+        }
+        
+        .resume-job {
+            margin-bottom: 2rem;
+        }
+        
+        .resume-job:last-child {
+            margin-bottom: 0;
+        }
+        
+        .resume-job-header {
+            margin-bottom: 1rem;
+        }
+        
+        .resume-job-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .resume-job-company {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+        
+        .resume-job-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .resume-job-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .resume-job-achievements {
+            list-style: none;
+        }
+        
+        .resume-job-achievement {
+            display: flex;
+            margin-bottom: 0.75rem;
+            align-items: flex-start;
+        }
+        
+        .resume-job-achievement i {
+            color: var(--accent);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        
+        .resume-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .resume-skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .resume-skill-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+        
+        .resume-skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .resume-skill {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+        
+        .resume-education {
+            margin-bottom: 1.5rem;
+        }
+        
+        .resume-education-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .resume-education-institution {
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+        
+        .resume-education-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resume-education-grade {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resume-education-skills {
+            margin-top: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .resume-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .resume-project {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .resume-project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+        
+        .resume-project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        
+        .resume-project-tech-item {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.15rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        
+        .resume-awards {
+            list-style: none;
+        }
+        
+        .resume-award {
+            display: flex;
+            margin-bottom: 0.75rem;
+        }
+        
+        .resume-award i {
+            color: var(--accent);
+            margin-right: 0.75rem;
+        }
+        
+        .resume-download {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer {
+            width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--dark-bg);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .resume-skills, .resume-projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">Argobox</span>
+                    <span class="logo-dot">.com</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="index.html#lab" class="nav-link">Live Lab</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="dashboard.html" class="dashboard-link" target="_blank">
+                    <span class="live-indicator"></span>
+                    <span>Live Dashboard</span>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Resume Content -->
+    <div class="resume-container">
+        <div class="resume-header">
+            <h1 class="resume-name">Daniel LaForce</h1>
+            <h2 class="resume-title">Infrastructure & Systems Engineer</h2>
+            
+            <div class="resume-contact">
+                <div class="resume-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Colorado Springs, Colorado</span>
+                </div>
+                <div class="resume-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:7203100064">720-310-0064</a>
+                </div>
+                <div class="resume-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:daniel.laforce@argobox.com">daniel.laforce@argobox.com</a>
+                </div>
+                <div class="resume-contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/danlaforce" target="_blank">linkedin.com/in/danlaforce</a>
+                </div>
+                <div class="resume-contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/keyargo" target="_blank">github.com/keyargo</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Experience Section -->
+        <div class="resume-section">
+            <h2 class="resume-section-title">Professional Experience</h2>
+            
+            <div class="resume-job">
+                <div class="resume-job-header">
+                    <h3 class="resume-job-title">Freelance Consultant – GIS, Infrastructure & Security Solutions</h3>
+                    <div class="resume-job-company">Inovin LLC</div>
+                    <div class="resume-job-period">April 2023 – Present | Colorado Springs, CO</div>
+                </div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Developed TerraTracer, a GIS mapping platform used by independent mining claim prospectors to automate boundary plotting, terrain-informed site selection, and BLM/state compliance, reducing manual research by 85%.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Consulted on virtualization and DevOps projects for SMB clients, implementing Proxmox/VMware solutions, containerizing legacy apps with Docker, and orchestrating microservices with Kubernetes.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Built secure cloud environments integrating Azure AD, SSO, and VPN/firewall solutions, increasing operational resilience while aligning with HIPAA and zero-trust principles.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Automated infrastructure tasks via PowerShell, Python, and Bash, optimizing system deployment, backup routines, and monitoring pipelines.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resume-job">
+                <div class="resume-job-header">
+                    <h3 class="resume-job-title">Project Engineer</h3>
+                    <div class="resume-job-company">Anchor Point IT Solutions</div>
+                    <div class="resume-job-period">December 2023 - June 2024</div>
+                </div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Executed 5 Microsoft 365 and SharePoint migrations with downtime reduced by 60%.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Implemented comprehensive security stack including BlueMira & DUO (Identity), SentinelOne (Endpoint), ConnectSecure (Network), and Email Mesh Security.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Reduced security incidents by 83% through security implementations and improved system updates by 60%.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Managed approximately 235 clients with environment sizes ranging from 30 to 1000 people.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resume-job">
+                <div class="resume-job-header">
+                    <h3 class="resume-job-title">Interim Virtual Chief Security Officer</h3>
+                    <div class="resume-job-company">Technology Response Team, LLC</div>
+                    <div class="resume-job-period">August 2023 - September 2023</div>
+                </div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Served as temporary VCSO for ~120 clients, conducting penetration testing using BURP Professional.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Managed enterprise security stack deployment including Blackpoint & Webroot (Endpoint), DNSFilter (Network), and ThreatLocker (Application Control).</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Administered Azure AD security policies and MFA enforcement, reducing monthly vulnerabilities by at least 20%.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resume-job">
+                <div class="resume-job-header">
+                    <h3 class="resume-job-title">Network Engineer II</h3>
+                    <div class="resume-job-company">NOVUS Professional Services, Inc.</div>
+                    <div class="resume-job-period">August 2022 - March 2023</div>
+                </div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Designed and implemented a WiFi testing cage for remote firmware testing of router models (Wave2, WiFi6).</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Developed Python automation for Plume device registration and Ansible scripts for network tasks.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Managed RF testing and signal verification across 9 headends and maintained network connectivity for ~100 routers across two sites.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resume-job">
+                <div class="resume-job-header">
+                    <h3 class="resume-job-title">Field Engineer</h3>
+                    <div class="resume-job-company">COMPUTEK Dental Systems</div>
+                    <div class="resume-job-period">December 2021 - August 2022</div>
+                </div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Managed IT infrastructure for 300+ dental practices (3700+ workstations, ~300 Windows Servers).</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Developed VSA Deployer application (Kaseya VSA RMM) for agent installation, reducing deployment time by 80%.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Maintained server, Hyper-V VM, and MySQL/MSSQL backups using N-Able Backups, Windows Server Backups and AIS.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="resume-job">
+                <div class="resume-job-header">
+                    <h3 class="resume-job-title">End-to-End Systems Engineer</h3>
+                    <div class="resume-job-company">Lockheed Martin</div>
+                    <div class="resume-job-period">June 2018 - December 2019</div>
+                </div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Maintained 2 IRON databases (AIMS and RAPID) with ~1800 configurations each, ensuring 100% database accuracy.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Collaborated with engineering team to implement Remote Tracking Station (RTS) configurations.</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Identified and documented an average of 27 critical defects every month.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skills Section -->
+        <div class="resume-section">
+            <h2 class="resume-section-title">Technical Skills</h2>
+            
+            <div class="resume-skills">
+                <div class="resume-skill-category">
+                    <h3 class="resume-skill-title">Cloud & Infrastructure</h3>
+                    <div class="resume-skill-list">
+                        <span class="resume-skill">Microsoft Azure</span>
+                        <span class="resume-skill">Azure AD</span>
+                        <span class="resume-skill">SharePoint</span>
+                        <span class="resume-skill">Teams</span>
+                        <span class="resume-skill">AWS</span>
+                        <span class="resume-skill">EC2</span>
+                        <span class="resume-skill">S3</span>
+                        <span class="resume-skill">GCP</span>
+                        <span class="resume-skill">VMware ESXi/vSphere</span>
+                        <span class="resume-skill">Hyper-V</span>
+                        <span class="resume-skill">Docker</span>
+                        <span class="resume-skill">Kubernetes (K3s)</span>
+                        <span class="resume-skill">ProxMox</span>
+                        <span class="resume-skill">Traefik</span>
+                        <span class="resume-skill">CI/CD</span>
+                    </div>
+                </div>
+                
+                <div class="resume-skill-category">
+                    <h3 class="resume-skill-title">Networking</h3>
+                    <div class="resume-skill-list">
+                        <span class="resume-skill">LAN/WAN</span>
+                        <span class="resume-skill">VPN</span>
+                        <span class="resume-skill">OSPF</span>
+                        <span class="resume-skill">EIGRP</span>
+                        <span class="resume-skill">STP</span>
+                        <span class="resume-skill">HSRP</span>
+                        <span class="resume-skill">VTP</span>
+                        <span class="resume-skill">IPv4/IPv6</span>
+                        <span class="resume-skill">ACLs</span>
+                        <span class="resume-skill">NAT/PAT</span>
+                        <span class="resume-skill">DNS/DHCP</span>
+                        <span class="resume-skill">VLANs</span>
+                        <span class="resume-skill">QoS</span>
+                        <span class="resume-skill">Cisco Routers</span>
+                        <span class="resume-skill">Catalyst Switches</span>
+                        <span class="resume-skill">ASA Firewalls</span>
+                        <span class="resume-skill">UniFi Systems</span>
+                        <span class="resume-skill">pfSense</span>
+                        <span class="resume-skill">OPNsense</span>
+                    </div>
+                </div>
+                
+                <div class="resume-skill-category">
+                    <h3 class="resume-skill-title">Programming/Scripting</h3>
+                    <div class="resume-skill-list">
+                        <span class="resume-skill">Python</span>
+                        <span class="resume-skill">JavaScript (Node.js)</span>
+                        <span class="resume-skill">PowerShell</span>
+                        <span class="resume-skill">Bash</span>
+                        <span class="resume-skill">C/C++</span>
+                        <span class="resume-skill">SQL</span>
+                        <span class="resume-skill">MySQL/MSSQL</span>
+                        <span class="resume-skill">AutoHotkey</span>
+                        <span class="resume-skill">Ansible</span>
+                    </div>
+                </div>
+                
+                <div class="resume-skill-category">
+                    <h3 class="resume-skill-title">Security</h3>
+                    <div class="resume-skill-list">
+                        <span class="resume-skill">Penetration Testing</span>
+                        <span class="resume-skill">BURP Professional</span>
+                        <span class="resume-skill">SentinelOne</span>
+                        <span class="resume-skill">Blackpoint</span>
+                        <span class="resume-skill">Webroot</span>
+                        <span class="resume-skill">ThreatLocker</span>
+                        <span class="resume-skill">Zero-Trust Architecture</span>
+                        <span class="resume-skill">HIPAA Compliance</span>
+                        <span class="resume-skill">BlueMira</span>
+                        <span class="resume-skill">DUO</span>
+                        <span class="resume-skill">DNSFilter</span>
+                        <span class="resume-skill">Email Mesh Security</span>
+                        <span class="resume-skill">MFA</span>
+                    </div>
+                </div>
+                
+                <div class="resume-skill-category">
+                    <h3 class="resume-skill-title">Operating Systems</h3>
+                    <div class="resume-skill-list">
+                        <span class="resume-skill">Windows Server</span>
+                        <span class="resume-skill">Active Directory</span>
+                        <span class="resume-skill">Group Policy</span>
+                        <span class="resume-skill">Exchange Server</span>
+                        <span class="resume-skill">Linux</span>
+                        <span class="resume-skill">Ubuntu</span>
+                        <span class="resume-skill">CentOS</span>
+                        <span class="resume-skill">Debian</span>
+                        <span class="resume-skill">Fedora</span>
+                        <span class="resume-skill">Kali Linux</span>
+                        <span class="resume-skill">Cisco IOS</span>
+                    </div>
+                </div>
+                
+                <div class="resume-skill-category">
+                    <h3 class="resume-skill-title">GIS & Data Science</h3>
+                    <div class="resume-skill-list">
+                        <span class="resume-skill">Geospatial Mapping</span>
+                        <span class="resume-skill">GeoPandas</span>
+                        <span class="resume-skill">GDAL/OGR</span>
+                        <span class="resume-skill">KML Generation</span>
+                        <span class="resume-skill">Data Visualization</span>
+                        <span class="resume-skill">Machine Learning</span>
+                        <span class="resume-skill">TensorFlow</span>
+                        <span class="resume-skill">PyTorch</span>
+                        <span class="resume-skill">Scikit-learn</span>
+                        <span class="resume-skill">Pandas</span>
+                        <span class="resume-skill">NumPy</span>
+                        <span class="resume-skill">Matplotlib</span>
+                        <span class="resume-skill">Seaborn</span>
+                    </div>
+                </div>
+                
+                <div class="resume-skill-category">
+                    <h3 class="resume-skill-title">Management & PSA Tools</h3>
+                    <div class="resume-skill-list">
+                        <span class="resume-skill">N-able N-central</span>
+                        <span class="resume-skill">Kaseya VSA</span>
+                        <span class="resume-skill">ConnectWise Automate</span>
+                        <span class="resume-skill">ConnectWise PSA</span>
+                        <span class="resume-skill">PRTG</span>
+                        <span class="resume-skill">SolarWinds</span>
+                        <span class="resume-skill">Addigy</span>
+                        <span class="resume-skill">ImmyBot</span>
+                        <span class="resume-skill">Commit Ticket CRM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Education Section -->
+        <div class="resume-section">
+            <h2 class="resume-section-title">Education</h2>
+            
+            <div class="resume-education">
+                <h3 class="resume-education-title">Bachelor of Science, Computer Science</h3>
+                <div class="resume-education-institution">Western Governors University</div>
+                <div class="resume-education-period">June 2019 - April 2023</div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-award"></i>
+                        <span>Activities and societies: Sigma Alpha Pi Honors Society (The National Society of Leadership and Success)</span>
+                    </div>
+                </div>
+                <div class="resume-education-skills">
+                    <strong>Skills:</strong> Python (Programming Language) · Project Management · Machine Learning · Team Leadership
+                </div>
+            </div>
+            
+            <div class="resume-education">
+                <h3 class="resume-education-title">Cyber Ops</h3>
+                <div class="resume-education-institution">Cisco Networking Academy</div>
+                <div class="resume-education-period">2018</div>
+                <div class="resume-education-skills">
+                    <strong>Skills:</strong> Networking · Cyber-security · Cisco Technologies
+                </div>
+            </div>
+            
+            <div class="resume-education">
+                <h3 class="resume-education-title">Computer Science and Innovation</h3>
+                <div class="resume-education-institution">University of Colorado Colorado Springs (UCCS)</div>
+                <div class="resume-education-period">January 2017 - December 2017</div>
+                <div class="resume-education-grade">Grade: 4.0</div>
+                <div class="resume-education-skills">
+                    <strong>Skills:</strong> C++ · Team Leadership
+                </div>
+            </div>
+            
+            <div class="resume-education">
+                <h3 class="resume-education-title">Associate's degree, General Studies</h3>
+                <div class="resume-education-institution">Pikes Peak State College</div>
+                <div class="resume-education-period">2015 - 2018</div>
+                <div class="resume-education-grade">Grade: 4.0</div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-award"></i>
+                        <span>Activities and societies: Phi Theta Kappa Honor Society</span>
+                    </div>
+                </div>
+                <div class="resume-education-skills">
+                    <strong>Skills:</strong> Linux · Virtual Server · C++ · System Administration · Wireless
+                </div>
+            </div>
+            
+            <div class="resume-education">
+                <h3 class="resume-education-title">Associate's Degree, Computer Wide Area Networks</h3>
+                <div class="resume-education-institution">Front Range Community College</div>
+                <div class="resume-education-period">2014 - 2016</div>
+                <div class="resume-education-grade">Grade: 3.87</div>
+                <div class="resume-job-achievements">
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-award"></i>
+                        <span>Activities and societies: Phi Theta Kappa Honor Society</span>
+                    </div>
+                    <div class="resume-job-achievement">
+                        <i class="fas fa-award"></i>
+                        <span>Magna Cum Laude honors</span>
+                    </div>
+                </div>
+                <div class="resume-education-skills">
+                    <strong>Skills:</strong> Virtual Server · C++ · Networking · Wireless
+                </div>
+            </div>
+        </div>
+        
+        <!-- Certifications Section -->
+        <div class="resume-section">
+            <h2 class="resume-section-title">Certifications</h2>
+            
+            <div class="resume-job-achievements">
+                <div class="resume-job-achievement">
+                    <i class="fas fa-certificate"></i>
+                    <span>Project+ (CompTIA)</span>
+                </div>
+                <div class="resume-job-achievement">
+                    <i class="fas fa-certificate"></i>
+                    <span>Network+ (FRCC)</span>
+                </div>
+                <div class="resume-job-achievement">
+                    <i class="fas fa-certificate"></i>
+                    <span>A+ (FRCC)</span>
+                </div>
+                <div class="resume-job-achievement">
+                    <i class="fas fa-certificate"></i>
+                    <span>CCNA Cyber Ops (2021)</span>
+                </div>
+                <div class="resume-job-achievement">
+                    <i class="fas fa-certificate"></i>
+                    <span>CCNA Routing & Switching (2021)</span>
+                </div>
+                <div class="resume-job-achievement">
+                    <i class="fas fa-certificate"></i>
+                    <span>Virtual Cyber Security Officer Training (vCSO Advanced)</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Projects Section -->
+        <div class="resume-section">
+            <h2 class="resume-section-title">Notable Projects</h2>
+            
+            <div class="resume-projects">
+                <div class="resume-project">
+                    <h3 class="resume-project-title">Full-Access Wi-Fi Testing Cage</h3>
+                    <p>Designed and implemented a comprehensive testing environment for router firmware validation with remote access capabilities. Engineered cable modem/SONU configurations for MAP-T and dual-stack testing with automated relay and RF switcher control.</p>
+                    <div class="resume-project-tech">
+                        <span class="resume-project-tech-item">RF Engineering</span>
+                        <span class="resume-project-tech-item">Network Testing</span>
+                        <span class="resume-project-tech-item">CAD Prototyping</span>
+                        <span class="resume-project-tech-item">Serial Interface</span>
+                        <span class="resume-project-tech-item">Automation</span>
+                    </div>
+                </div>
+                
+                <div class="resume-project">
+                    <h3 class="resume-project-title">TerraTracer GIS Platform</h3>
+                    <p>A GIS mapping platform used by mining claim prospectors to automate boundary plotting and compliance verification, reducing manual research by 85% and improving claim success rates by 40%.</p>
+                    <div class="resume-project-tech">
+                        <span class="resume-project-tech-item">Python</span>
+                        <span class="resume-project-tech-item">Node.js</span>
+                        <span class="resume-project-tech-item">GeoPandas</span>
+                        <span class="resume-project-tech-item">KML</span>
+                        <span class="resume-project-tech-item">GDAL/OGR</span>
+                    </div>
+                </div>
+                
+                <div class="resume-project">
+                    <h3 class="resume-project-title">VSA Deployer</h3>
+                    <p>Custom application for streamlining Kaseya VSA RMM agent installation, reducing deployment time by 80% across dental practice environments. Implemented for 300+ practices with 3700+ workstations.</p>
+                    <div class="resume-project-tech">
+                        <span class="resume-project-tech-item">PowerShell</span>
+                        <span class="resume-project-tech-item">AutoHotkey</span>
+                        <span class="resume-project-tech-item">RMM</span>
+                        <span class="resume-project-tech-item">Kaseya VSA</span>
+                    </div>
+                </div>
+                
+                <div class="resume-project">
+                    <h3 class="resume-project-title">AI-Driven Car Price Prediction</h3>
+                    <p>Developed machine learning model for predicting used car prices with over 90% accuracy using Random Forest Regression and comprehensive feature engineering.</p>
+                    <div class="resume-project-tech">
+                        <span class="resume-project-tech-item">Python</span>
+                        <span class="resume-project-tech-item">Scikit-learn</span>
+                        <span class="resume-project-tech-item">Pandas</span>
+                        <span class="resume-project-tech-item">Random Forest</span>
+                        <span class="resume-project-tech-item">Jupyter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resume-download">
+            <a href="files/daniel-laforce-resume.pdf" class="btn btn-primary" download>
+                <i class="fas fa-download btn-icon"></i>
+                Download Full Resume (PDF)
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Argobox</span>
+                    <span class="logo-dot">.com</span>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#lab">Live Lab</a>
+                    <a href="index.html#projects">Projects</a>
+                    <a href="index.html#experience">Experience</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/danlaforce" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/keyargo" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> All rights reserved. Inovin LLC</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

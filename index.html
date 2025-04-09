@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel LaForce | Infrastructure & Systems Architect | DevOps Engineer</title>
+    <meta name="description" content="Expert in systems engineering, infrastructure architecture, DevOps automation, and secure cloud migrations. Specializing in virtualization, containerization, and network security.">
+    <meta name="keywords" content="infrastructure architect, systems engineer, DevOps automation, network security, virtualization, kubernetes, docker, cloud migration, IT consultant">
+    <meta name="author" content="Daniel LaForce">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Daniel LaForce | Infrastructure & Systems Architect">
+    <meta property="og:description" content="Expert in infrastructure architecture, DevOps automation, and secure cloud migrations. View my live lab dashboard and projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://argobox.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <span class="logo-text">Argobox</span>
+                    <span class="logo-dot">.com</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#lab" class="nav-link">Live Lab</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="dashboard.html" class="dashboard-link" target="_blank">
+                    <span class="live-indicator"></span>
+                    <span>Live Dashboard</span>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <!-- Background elements -->
+    <div class="particles-container" id="particles-container"></div>
+    <div class="floating-icons" id="floating-icons"></div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <div class="intro-section">
+                <div class="name-section">
+                    <h2 class="name">Daniel LaForce</h2>
+                    <span class="your-text">your</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="role-wrapper">
+                        <span class="role active" data-role="admin" data-description="Building scalable infrastructure with optimized performance and bulletproof security — from server management to end-user support that keeps businesses running smoothly.">
+                            <span class="highlight">System</span> <span class="highlight">Administrator</span> &amp; IT Expert
+                        </span>
+                        <span class="role" data-role="devops" data-description="Streamlining development workflows with CI/CD pipelines and infrastructure as code — automating deployments and improving reliability across your entire technology stack.">
+                            <span class="highlight">DevOps</span> &amp; <span class="highlight">Automation</span> Engineer
+                        </span>
+                        <span class="role" data-role="architect" data-description="Designing resilient infrastructure and automation solutions — from virtualization and containerization to secure network architecture and cloud migration strategies.">
+                            <span class="highlight">Infrastructure</span> &amp; <span class="highlight">Systems</span> Architect
+                        </span>
+                    </span>
+                </h1>
+                
+                <p class="hero-description" id="role-description">
+                    Building scalable infrastructure with optimized performance and bulletproof security — from server management to end-user support that keeps businesses running smoothly.
+                </p>
+                
+                <div class="inline-terminal">
+                    <div id="terminal-text" class="terminal-text">> Ready for deployment...</div>
+                </div>
+            </div>
+            
+            <div class="dashboard-section">
+                <div class="status-pill">
+                    <div class="live-indicator"></div>
+                    <span>Lab Status: Online</span>
+                </div>
+                
+                <div class="tech-dashboard">
+                    <div class="data-stream">
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                        <div class="data-line"></div>
+                    </div>
+                    <div class="monitoring-terminal">
+                        <div class="terminal-line">> Monitoring infrastructure...</div>
+                        <div class="terminal-line success">> CPU load: Normal</div>
+                        <div class="terminal-line success">> RAM usage: 42%</div>
+                        <div class="terminal-line success">> Network: Stable</div>
+                        <div class="terminal-line info">> Containers: 16 running</div>
+                        <div class="terminal-line warning">> Backing up critical data...</div>
+                        <div class="terminal-line">> Status: All systems operational</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <span class="btn-text">Hire Me</span>
+                    <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="ansible-sandbox.html" class="btn btn-outline btn-featured" target="_blank">
+                    <span class="pulse-ring"></span>
+                    <span class="btn-text">Explore My Lab</span>
+                    <span class="btn-icon"><i class="fas fa-server"></i></span>
+                </a>
+                
+                <a href="resume.html" class="btn btn-outline" target="_blank">
+                    <span class="btn-text">View Resume</span>
+                    <span class="btn-icon"><i class="fas fa-file-alt"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Showcase -->
+<section class="solutions-showcase">
+    <div class="container">
+        <div class="solutions-header">
+            <h3 class="solutions-title">Solving Complex IT Challenges</h3>
+        </div>
+        
+        <div class="solutions-carousel">
+            <div class="solution-slide active" id="solution-1">
+                <div class="solution-icon"><i class="fas fa-sync"></i></div>
+                <h4>Seamless Microsoft 365 Migrations</h4>
+                <p>Executed with 60% less downtime than industry average</p>
+            </div>
+            
+            <div class="solution-slide" id="solution-2">
+                <div class="solution-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4>Secure Remote Work Infrastructure</h4>
+                <p>Zero-trust architecture implementation for distributed teams</p>
+            </div>
+            
+            <div class="solution-slide" id="solution-3">
+                <div class="solution-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h4>Automated DevOps Pipelines</h4>
+                <p>Reducing deployment times by up to 85% with CI/CD automation</p>
+            </div>
+            
+            <div class="solution-slide" id="solution-4">
+                <div class="solution-icon"><i class="fas fa-cubes"></i></div>
+                <h4>Containerized Application Deployment</h4>
+                <p>Simplified scaling and maintenance with Kubernetes orchestration</p>
+            </div>
+            
+            <div class="solution-slide" id="solution-5">
+                <div class="solution-icon"><i class="fas fa-users-cog"></i></div>
+                <h4>Enterprise-Level System Administration</h4>
+                <p>99.98% uptime across critical infrastructure components</p>
+            </div>
+            
+            <div class="solution-slide" id="solution-6">
+                <div class="solution-icon"><i class="fas fa-network-wired"></i></div>
+                <h4>Network Infrastructure Optimization</h4>
+                <p>40% reduced latency and improved throughput for business applications</p>
+            </div>
+            
+            <div class="solution-slide" id="solution-7">
+                <div class="solution-icon"><i class="fas fa-headset"></i></div>
+                <h4>Responsive Technical Support</h4>
+                <p>Average ticket resolution time reduced by 68% through process optimization</p>
+            </div>
+            
+            <div class="solution-slide" id="solution-8">
+                <div class="solution-icon"><i class="fas fa-server"></i></div>
+                <h4>Server Consolidation & Virtualization</h4>
+                <p>35% cost reduction while improving redundancy and disaster recovery</p>
+            </div>
+        </div>
+        
+        <div class="slider-controls">
+            <button class="slider-dot active" data-slide="solution-1" aria-label="Solution 1"></button>
+            <button class="slider-dot" data-slide="solution-2" aria-label="Solution 2"></button>
+            <button class="slider-dot" data-slide="solution-3" aria-label="Solution 3"></button>
+            <button class="slider-dot" data-slide="solution-4" aria-label="Solution 4"></button>
+            <button class="slider-dot" data-slide="solution-5" aria-label="Solution 5"></button>
+            <button class="slider-dot" data-slide="solution-6" aria-label="Solution 6"></button>
+            <button class="slider-dot" data-slide="solution-7" aria-label="Solution 7"></button>
+            <button class="slider-dot" data-slide="solution-8" aria-label="Solution 8"></button>
+        </div>
+    </div>
+</section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Expert Services</h2>
+                <p class="section-description">
+                    Comprehensive IT solutions tailored to your business needs, from network infrastructure to cloud migration.
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- System Administration -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-title">System Administration</h3>
+                    <p class="service-description">
+                        Expert management of Windows & Linux servers, virtualization, and cloud infrastructure. Ensuring your systems remain secure, optimized and reliable.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Windows Server</span>
+                        <span class="tech-badge">Linux</span>
+                        <span class="tech-badge">VMware</span>
+                        <span class="tech-badge">Proxmox</span>
+                    </div>
+                </div>
+                
+                <!-- Network Engineering -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="service-title">Network Engineering</h3>
+                    <p class="service-description">
+                        Design and implementation of robust network infrastructures. Specializing in routing, switching, firewalls, and network security solutions.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">pfSense</span>
+                        <span class="tech-badge">OPNsense</span>
+                        <span class="tech-badge">VPN</span>
+                        <span class="tech-badge">VLAN</span>
+                    </div>
+                </div>
+                
+                <!-- Cloud & Virtualization -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">Cloud & Virtualization</h3>
+                    <p class="service-description">
+                        Implementation of virtualization technologies and cloud solutions. From VMware and Proxmox to containerization with Docker and Kubernetes.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Kubernetes</span>
+                        <span class="tech-badge">K3s</span>
+                        <span class="tech-badge">Azure</span>
+                    </div>
+                </div>
+                
+                <!-- M365 Migrations -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3 class="service-title">M365 Migrations</h3>
+                    <p class="service-description">
+                        Seamless migration to Microsoft 365 environments. From email and SharePoint to Teams and OneDrive, ensuring minimal disruption to your business.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Exchange</span>
+                        <span class="tech-badge">SharePoint</span>
+                        <span class="tech-badge">Azure AD</span>
+                        <span class="tech-badge">Teams</span>
+                    </div>
+                </div>
+                
+                <!-- IT Security -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">IT Security</h3>
+                    <p class="service-description">
+                        Comprehensive security solutions to protect your business. Including firewall configuration, VPN setup, security audits, and best practices implementation.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Zero Trust</span>
+                        <span class="tech-badge">Cloudflare</span>
+                        <span class="tech-badge">Endpoint Security</span>
+                        <span class="tech-badge">Auditing</span>
+                    </div>
+                </div>
+                
+                <!-- DevOps & Automation -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="service-title">DevOps & Automation</h3>
+                    <p class="service-description">
+                        Infrastructure as code, CI/CD pipelines, and automation solutions using industry-standard tools and best practices to streamline your operations.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Ansible</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">PowerShell</span>
+                        <span class="tech-badge">Bash</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Lab Section -->
+    <section id="lab" class="lab">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Live Infrastructure Lab</h2>
+                <p class="section-description">
+                    I maintain a production-grade homelab that serves as both a testing ground and showcase for my technical skills.
+                </p>
+            </div>
+            
+            <div class="lab-grid">
+                <div class="lab-card">
+                    <h3 class="lab-card-title">Lab Architecture</h3>
+                    <p class="lab-card-description">
+                        My lab consists of multiple physical and virtual machines running Proxmox, Docker, and Kubernetes (K3s), all secured behind Cloudflare Zero Trust.
+                    </p>
+                    
+                    <h4 class="lab-subtitle">Current Infrastructure:</h4>
+                    <ul class="lab-list">
+                        <li><span class="bullet"></span>Proxmox Hypervisor Cluster</li>
+                        <li><span class="bullet"></span>OPNsense Router (Physical + VM)</li>
+                        <li><span class="bullet"></span>K3s Kubernetes Cluster</li>
+                        <li><span class="bullet"></span>Traefik Ingress Controller</li>
+                        <li><span class="bullet"></span>Gitea, VSCode Server, NAS</li>
+                        <li><span class="bullet"></span>Cloudflared Zero Trust Tunnel</li>
+                    </ul>
+                    
+                    <div class="lab-buttons">
+                        <a href="dashboard.html" class="btn btn-primary" target="_blank">
+                            <span class="flex-center">
+                                <span class="live-indicator"></span>
+                                <span>View Live Dashboard</span>
+                            </span>
+                        </a>
+                        <a href="ansible-sandbox.html" class="btn btn-outline" target="_blank">Try Ansible Sandbox</a>
+                    </div>
+                </div>
+                
+                <div class="lab-card">
+                    <h3 class="lab-card-title">Real-Time Metrics</h3>
+                    
+                    <div class="metric">
+                        <div class="metric-header">
+                            <span class="metric-name">CPU Usage</span>
+                            <span class="metric-value">42%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-progress" style="width: 42%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-header">
+                            <span class="metric-name">Memory</span>
+                            <span class="metric-value">57%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-progress" style="width: 57%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-header">
+                            <span class="metric-name">Storage</span>
+                            <span class="metric-value">63%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-progress" style="width: 63%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric">
+                        <div class="metric-header">
+                            <span class="metric-name">Network</span>
+                            <span class="metric-value">28%</span>
+                        </div>
+                        <div class="metric-bar">
+                            <div class="metric-progress" style="width: 28%"></div>
+                        </div>
+                    </div>
+                    
+                    <h4 class="lab-subtitle">Active Services:</h4>
+                    <div class="services-grid-small">
+                        <div class="service-tag"><span class="status-dot"></span>Gitea</div>
+                        <div class="service-tag"><span class="status-dot"></span>VSCode Server</div>
+                        <div class="service-tag"><span class="status-dot"></span>rTorrent</div>
+                        <div class="service-tag"><span class="status-dot"></span>NAS</div>
+                        <div class="service-tag"><span class="status-dot"></span>Traefik</div>
+                        <div class="service-tag"><span class="status-dot"></span>K3s</div>
+                        <div class="service-tag"><span class="status-dot"></span>Cloudflared</div>
+                        <div class="service-tag"><span class="status-dot"></span>FileBrowser</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sample Docker configuration -->
+            <div class="code-card">
+                <h3 class="code-card-title">How I'm Running Services</h3>
+                <p class="code-card-description">
+                    Here's a sample of how I deploy and manage services in my infrastructure:
+                </p>
+                
+                <div class="code-block">
+                    <code>
+                        <span class="comment"># K3s deployment for Gitea with persistent storage</span><br>
+                        <span class="keyword">apiVersion</span>: apps/v1<br>
+                        <span class="keyword">kind</span>: Deployment<br>
+                        <span class="keyword">metadata</span>:<br>
+                        &nbsp;&nbsp;<span class="keyword">name</span>: gitea<br>
+                        &nbsp;&nbsp;<span class="keyword">namespace</span>: argobox<br>
+                        <span class="keyword">spec</span>:<br>
+                        &nbsp;&nbsp;<span class="keyword">replicas</span>: 1<br>
+                        &nbsp;&nbsp;<span class="function">selector</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">matchLabels</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">app</span>: gitea<br>
+                        &nbsp;&nbsp;<span class="function">template</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">metadata</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">labels</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">app</span>: gitea<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">spec</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">containers</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="keyword">name</span>: gitea<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">image</span>: <span class="string">gitea/gitea:latest</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">ports</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="keyword">containerPort</span>: 3000<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">volumeMounts</span>:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="keyword">name</span>: gitea-data<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mountPath</span>: <span class="string">/data</span><br>
+                    </code>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    A showcase of technical solutions I've built and deployed.
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="project-title">TerraTracer</h3>
+                    <p class="project-description">
+                        A GIS mapping tool for prospectors to automate mining claim boundary plotting, terrain analysis, and compliance with BLM/state regulations.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">GIS</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="project-title">Zero Trust Lab</h3>
+                    <p class="project-description">
+                        A secure home lab infrastructure using Cloudflare Zero Trust tunnels, network segmentation, and security best practices.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Cloudflare</span>
+                        <span class="tech-badge">OPNsense</span>
+                        <span class="tech-badge">VLAN</span>
+                        <span class="tech-badge">VPN</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="project-title">Ansible Sandbox</h3>
+                    <p class="project-description">
+                        An interactive demo environment where users can spin up preconfigured services using Ansible automation.
+                    </p>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Ansible</span>
+                        <span class="tech-badge">Proxmox</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-description">
+                    A history of delivering reliable IT infrastructure and solutions.
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Inovin LLC</h3>
+                        <h4 class="timeline-subtitle">Freelance Consultant – GIS, Infrastructure & Security Solutions</h4>
+                        <div class="timeline-date">April 2023 – Present</div>
+                        <p class="timeline-description">
+                            Providing specialized consulting services in virtualization, containerization, network security, and custom GIS solutions.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Previous Roles</h3>
+                        <h4 class="timeline-subtitle">System & Network Engineering Positions</h4>
+                        <div class="timeline-date">Prior Experience</div>
+                        <p class="timeline-description">
+                            Extensive experience in MSPs, network engineering, and diverse IT environments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-description">
+                    Have a project in mind? Reach out to discuss how I can help.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="contact-title">Email</h3>
+                        <p><a href="mailto:daniel.laforce@argobox.com">daniel.laforce@argobox.com</a></p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h3 class="contact-title">LinkedIn</h3>
+                        <p><a href="https://www.linkedin.com/in/danlaforce" target="_blank">linkedin.com/in/danlaforce</a></p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3 class="contact-title">GitHub</h3>
+                        <p><a href="https://github.com/keyargo" target="_blank">github.com/keyargo</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane btn-icon"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Argobox</span>
+                    <span class="logo-dot">.com</span>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#lab">Live Lab</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://github.com/keyargo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/danlaforce" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:daniel.laforce@argobox.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> All rights reserved. Inovin LLC</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
