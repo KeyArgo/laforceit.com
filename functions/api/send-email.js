@@ -1,6 +1,7 @@
-**
+/**
  * Cloudflare Pages Function - /api/send-email
  */
+
 export async function onRequestPost(context) {
     const { name, email, subject, message } = await context.request.json();
 
