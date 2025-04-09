@@ -209,19 +209,30 @@ section {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: transparent;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.logo a {
+  text-decoration: none;
 }
 
 .logo-text {
-    color: var(--accent);
+  margin-right: 4px;
+  color: inherit; /* inherit gradient */
 }
 
 .logo-dot {
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
+
 
 .nav-menu {
     display: flex;
