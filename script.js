@@ -397,9 +397,6 @@ function updateMetrics() {
 /**
  * Initialize contact form handling
  */
-/**
- * Initialize contact form handling
- */
 function initFormHandling(form) {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
@@ -427,16 +424,43 @@ function initFormHandling(form) {
 
             const data = await res.json();
 
+            const notification = document.getElementById('form-notification');
+            const notificationIcon = notification.querySelector('i');
+            const notificationText = notification.querySelector('.notification-text');
+
             if (data.success) {
-                alert("Thank you for your message! I will get back to you soon.");
+                notification.style.display = 'block';
+                notification.classList.add('success');
+                notification.classList.remove('error');
+                notificationIcon.className = 'fas fa-check-circle';
+                notificationText.textContent = "Message sent successfully! We'll get back to you soon.";
                 form.reset();
             } else {
-                alert("Failed to send message. Please try again or contact me directly.");
+                notification.style.display = 'block';
+                notification.classList.add('error');
+                notification.classList.remove('success');
+                notificationIcon.className = 'fas fa-exclamation-circle';
+                notificationText.textContent = "Failed to send message. Please try again or contact me directly.";
             }
+
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
 
         } catch (error) {
             console.error("Error:", error);
-            alert("Something went wrong while sending your message.");
+            const notification = document.getElementById('form-notification');
+            notification.style.display = 'block';
+            notification.classList.add('error');
+            notification.classList.remove('success');
+            notification.querySelector('i').className = 'fas fa-exclamation-circle';
+            notification.querySelector('.notification-text').textContent = "Something went wrong while sending your message.";
+            
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
         } finally {
             submitButton.innerHTML = originalButtonText;
             submitButton.disabled = false;
@@ -453,24 +477,3 @@ function updateYear() {
         yearElement.textContent = new Date().getFullYear();
     }
 }
-
-/**
- * Utility function to add particle float animation
- */
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all website functionality
-    initNavigation();
-    initParticlesAndIcons();
-    initRoleRotation(); // Updated function
-    initTerminalTyping(); // Updated function
-    initSolutionsCarousel(); // Updated function
-    initScrollReveal();
-    updateMetrics();
-    updateYear();
-    
-    // Initialize form handling
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        initFormHandling(contactForm);
-    }
-});

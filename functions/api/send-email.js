@@ -14,12 +14,12 @@ export async function onRequestPost(context) {
             },
             body: JSON.stringify({
                 from: {
-                    email: "daniel@laforceit.com",
+                    email: "contact@argobox.com",
                     name: "Daniel LaForce"
                 },
                 to: [
                     {
-                        email: "daniel@laforceit.com",
+                        email: "daniel.laforce@argobox.com",
                         name: "Daniel LaForce"
                     }
                 ],
