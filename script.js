@@ -372,6 +372,10 @@ function updateMetrics() {
  * Initialize contact form handling
  */
 function initFormHandling(form) {
+    // Prevent multiple initializations
+    if (form.hasAttribute('data-initialized')) return;
+    form.setAttribute('data-initialized', 'true');
+
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
@@ -384,6 +388,14 @@ function initFormHandling(form) {
         const notificationIcon = notification.querySelector('i');
         const notificationText = notification.querySelector('.notification-text');
 
+        // Hide any existing notification with animation
+        if (notification.style.display === 'flex') {
+            notification.classList.add('hiding');
+            await new Promise(resolve => setTimeout(resolve, 300));
+            notification.classList.remove('hiding');
+            notification.style.display = 'none';
+        }
+
         const formData = {
             name: form.elements['name'].value,
             email: form.elements['email'].value,
@@ -392,7 +404,6 @@ function initFormHandling(form) {
         };
 
         try {
-            console.log('Sending form data...');
             const res = await fetch("/api/send-email", {
                 method: "POST",
                 headers: {
@@ -402,21 +413,20 @@ function initFormHandling(form) {
             });
 
             const data = await res.json();
-            console.log('Response:', data);
 
+            notification.style.display = 'flex';
+            
             if (res.ok) {
-                notification.style.display = 'flex';
                 notification.classList.remove('error');
                 notification.classList.add('success');
                 notificationIcon.className = 'fas fa-check-circle';
                 notificationText.textContent = "Message sent successfully! We'll get back to you soon.";
                 form.reset();
             } else {
-                notification.style.display = 'flex';
                 notification.classList.remove('success');
                 notification.classList.add('error');
                 notificationIcon.className = 'fas fa-exclamation-circle';
-                notificationText.textContent = `Error: ${data.error}${data.details ? ` - ${data.details}` : ''}`;
+                notificationText.textContent = data.error + (data.details ? `: ${data.details}` : '');
             }
 
         } catch (error) {
@@ -430,10 +440,14 @@ function initFormHandling(form) {
             submitButton.innerHTML = originalButtonText;
             submitButton.disabled = false;
 
-            // Hide notification after 10 seconds
+            // Hide notification after 5 seconds with animation
             setTimeout(() => {
-                notification.style.display = 'none';
-            }, 10000);
+                notification.classList.add('hiding');
+                setTimeout(() => {
+                    notification.classList.remove('hiding');
+                    notification.style.display = 'none';
+                }, 300);
+            }, 5000);
         }
     });
 }
