@@ -6,6 +6,13 @@ export async function onRequestPost(context) {
     const { name, email, subject, message } = await context.request.json();
 
     try {
+        // Check if API key is configured
+        if (!context.env.MAILERSEND_API_KEY) {
+            throw new Error('MailerSend API key is not configured');
+        }
+
+        console.log('Attempting to send email with MailerSend...');
+        
         const response = await fetch("https://api.mailersend.com/v1/email", {
             method: "POST",
             headers: {
@@ -14,16 +21,16 @@ export async function onRequestPost(context) {
             },
             body: JSON.stringify({
                 from: {
-                    email: "contact@argobox.com",
+                    email: "contact@laforceit.com",
                     name: "Daniel LaForce"
                 },
                 to: [
                     {
-                        email: "daniel.laforce@argobox.com",
+                        email: "daniel.laforce@laforceit.com",
                         name: "Daniel LaForce"
                     }
                 ],
-                subject: `[Argobox] ${subject}`,
+                subject: `[LaForceIT] ${subject}`,
                 html: `
                     <h2>New Contact Message</h2>
                     <p><strong>Name:</strong> ${name}</p>
@@ -39,15 +46,32 @@ export async function onRequestPost(context) {
             })
         });
 
+        const responseData = await response.text();
+        console.log("MailerSend Response:", responseData);
+
         if (!response.ok) {
-            console.error("MailerSend Error:", await response.json());
-            return new Response(JSON.stringify({ error: "Failed to send email" }), { status: 500 });
+            const errorDetail = responseData ? JSON.parse(responseData) : {};
+            throw new Error(`MailerSend API error (${response.status}): ${JSON.stringify(errorDetail)}`);
         }
 
-        return new Response(JSON.stringify({ success: true }), { status: 200 });
+        return new Response(JSON.stringify({ success: true }), { 
+            status: 200,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
     } catch (err) {
-        console.error("Unexpected Error:", err);
-        return new Response(JSON.stringify({ error: "Unexpected server error" }), { status: 500 });
+        console.error("Email Send Error:", err);
+        return new Response(JSON.stringify({ 
+            error: "Failed to send email",
+            details: err.message,
+            timestamp: new Date().toISOString()
+        }), { 
+            status: 500,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     }
 }

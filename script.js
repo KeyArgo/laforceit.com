@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all website functionality
     initNavigation();
     initParticlesAndIcons();
-    initRoleRotation();
+    initRoleAnimation();
     initTerminalTyping();
     initSolutionsCarousel();
     initScrollReveal();
@@ -119,11 +119,12 @@ function createBackgroundParticles() {
         particle.style.top = `${yPos}%`;
         
         // Animation properties
-        particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
-        particle.style.animationDelay = `${Math.random() * 5}s`;
+        const duration = Math.random() * 20 + 10;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${Math.random() * -duration}s`;
         
         // Add particle animation
-        particle.style.animation = `particle-float ${Math.random() * 20 + 10}s linear infinite`;
+        particle.style.animation = `float-particle ${duration}s linear infinite`;
         
         particlesContainer.appendChild(particle);
     }
@@ -180,51 +181,24 @@ function createFloatingIcons() {
 /**
  * Initialize role rotation in the hero section
  */
-function initRoleRotation() {
+function initRoleAnimation() {
     const roles = document.querySelectorAll('.role');
-    const descriptionElement = document.getElementById('role-description');
-    
-    if (roles.length === 0 || !descriptionElement) return;
-    
-    let currentRole = 0;
-    
-    function rotateRoles() {
-        // Hide current role
-        roles[currentRole].classList.remove('active');
-        
-        // Move to next role
-        currentRole = (currentRole + 1) % roles.length;
-        
-        // Show new role
-        roles[currentRole].classList.add('active');
-        
-        // Update description text
-        const newDescription = roles[currentRole].getAttribute('data-description');
-        if (newDescription) {
-            descriptionElement.textContent = newDescription;
-            
-            // Animate the description change
-            descriptionElement.style.opacity = '0';
-            descriptionElement.style.transform = 'translateY(10px)';
-            
-            setTimeout(() => {
-                descriptionElement.style.opacity = '1';
-                descriptionElement.style.transform = 'translateY(0)';
-            }, 50);
-        }
+    const description = document.getElementById('role-description');
+    let currentIndex = 0;
+
+    function updateRole() {
+        roles.forEach(role => role.classList.remove('active'));
+        roles[currentIndex].classList.add('active');
+        description.textContent = roles[currentIndex].getAttribute('data-description');
+        description.style.opacity = '0';
+        setTimeout(() => {
+            description.style.opacity = '1';
+        }, 100);
+        currentIndex = (currentIndex + 1) % roles.length;
     }
-    
-    // Set initial role to active
-    roles[0].classList.add('active');
-    
-    // Initialize with the first description
-    const initialDescription = roles[0].getAttribute('data-description');
-    if (initialDescription && descriptionElement) {
-        descriptionElement.textContent = initialDescription;
-    }
-    
-    // Start rotation with delay
-    setInterval(rotateRoles, 5000);
+
+    updateRole(); // Set initial state
+    setInterval(updateRole, 5000); // Switch roles every 5 seconds
 }
 
 /**
@@ -406,6 +380,10 @@ function initFormHandling(form) {
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitButton.disabled = true;
 
+        const notification = document.getElementById('form-notification');
+        const notificationIcon = notification.querySelector('i');
+        const notificationText = notification.querySelector('.notification-text');
+
         const formData = {
             name: form.elements['name'].value,
             email: form.elements['email'].value,
@@ -414,6 +392,7 @@ function initFormHandling(form) {
         };
 
         try {
+            console.log('Sending form data...');
             const res = await fetch("/api/send-email", {
                 method: "POST",
                 headers: {
@@ -423,47 +402,38 @@ function initFormHandling(form) {
             });
 
             const data = await res.json();
+            console.log('Response:', data);
 
-            const notification = document.getElementById('form-notification');
-            const notificationIcon = notification.querySelector('i');
-            const notificationText = notification.querySelector('.notification-text');
-
-            if (data.success) {
-                notification.style.display = 'block';
-                notification.classList.add('success');
+            if (res.ok) {
+                notification.style.display = 'flex';
                 notification.classList.remove('error');
+                notification.classList.add('success');
                 notificationIcon.className = 'fas fa-check-circle';
                 notificationText.textContent = "Message sent successfully! We'll get back to you soon.";
                 form.reset();
             } else {
-                notification.style.display = 'block';
-                notification.classList.add('error');
+                notification.style.display = 'flex';
                 notification.classList.remove('success');
+                notification.classList.add('error');
                 notificationIcon.className = 'fas fa-exclamation-circle';
-                notificationText.textContent = "Failed to send message. Please try again or contact me directly.";
+                notificationText.textContent = `Error: ${data.error}${data.details ? ` - ${data.details}` : ''}`;
             }
 
-            // Hide notification after 5 seconds
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 5000);
-
         } catch (error) {
-            console.error("Error:", error);
-            const notification = document.getElementById('form-notification');
-            notification.style.display = 'block';
-            notification.classList.add('error');
+            console.error("Form submission error:", error);
+            notification.style.display = 'flex';
             notification.classList.remove('success');
-            notification.querySelector('i').className = 'fas fa-exclamation-circle';
-            notification.querySelector('.notification-text').textContent = "Something went wrong while sending your message.";
-            
-            // Hide notification after 5 seconds
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 5000);
+            notification.classList.add('error');
+            notificationIcon.className = 'fas fa-exclamation-circle';
+            notificationText.textContent = `Error: ${error.message}`;
         } finally {
             submitButton.innerHTML = originalButtonText;
             submitButton.disabled = false;
+
+            // Hide notification after 10 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 10000);
         }
     });
 }

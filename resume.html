@@ -9,7 +9,7 @@
     <meta name="description" content="Professional resume of Daniel LaForce - Systems & Infrastructure Engineer specializing in virtualization, containerization, and secure network architecture.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f172a%22></rect><path fill=%22%233b82f6%22 d=%22M30 40L50 20L70 40L50 60L30 40Z%22></path><path fill=%22%233b82f6%22 d=%22M50 60L70 40L70 70L50 90L30 70L30 40L50 60Z%22 fill-opacity=%220.6%22></path></svg>">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +34,11 @@
         
         .resume-container {
             max-width: 1000px;
-            margin: 6rem auto 4rem;
-            padding: 0 1.5rem;
-            flex: 1;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
         }
         
         .resume-header {
@@ -286,9 +288,149 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background: var(--secondary-bg);
+            transition: all var(--transition-normal);
+        }
+        .contact-links a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        @media print {
+            .contact-links a {
+                color: black;
+                background: none;
+                padding: 0;
+                margin-right: 1rem;
+            }
+        }
+
+        /* Call to Action Styles */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.2));
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cta-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-highlight {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all var(--transition-normal);
+        }
+
+        .cta-highlight:hover {
+            transform: translateY(-2px);
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-highlight i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .cta-highlight span {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            min-width: 200px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .cta-title {
+                font-size: 1.75rem;
+            }
+            
+            .cta-description {
+                font-size: 1rem;
+            }
+            
+            .cta-highlight {
+                padding: 0.75rem;
+            }
+            
+            .cta-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Bubble Animation -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -320,9 +462,41 @@
 
     <!-- Resume Content -->
     <div class="resume-container">
+        <!-- Call to Action Section -->
+        <div class="cta-banner">
+            <div class="cta-content">
+                <h2 class="cta-title">Transform Your Business with Enterprise-Grade IT Solutions</h2>
+                <p class="cta-description">Whether you need to enhance your cybersecurity posture, modernize your infrastructure, or seek a seasoned IT leader for your team, I deliver proven results:</p>
+                <div class="cta-highlights">
+                    <div class="cta-highlight">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Reduced security incidents by 83% for enterprise clients</span>
+                    </div>
+                    <div class="cta-highlight">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Improved system performance by 60% through optimization</span>
+                    </div>
+                    <div class="cta-highlight">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Decreased operational costs by 30% with automation</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary cta-btn">
+                        <i class="fas fa-rocket"></i>
+                        Schedule a Free Consultation
+                    </a>
+                    <a href="mailto:daniel.laforce@argobox.com" class="btn btn-outline cta-btn">
+                        <i class="fas fa-envelope"></i>
+                        Discuss Employment Opportunities
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div class="resume-header">
             <h1 class="resume-name">Daniel LaForce</h1>
-            <h2 class="resume-title">Infrastructure & Systems Engineer</h2>
+            <h2 class="resume-title">Network & Cyber Security Professional</h2>
             
             <div class="resume-contact">
                 <div class="resume-contact-item">
