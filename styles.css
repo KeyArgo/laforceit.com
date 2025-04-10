@@ -1,6 +1,5 @@
 /* 
-* Main stylesheet for argobox.com
-* Modern tech portfolio design with animation effects
+* Main stylesheet for laforceit.com
 */
 
 :root {
@@ -198,7 +197,6 @@ section {
 
 .navbar.scrolled {
     background-color: rgba(15, 23, 42, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .navbar .container {
@@ -443,13 +441,14 @@ background-clip: text;
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-top: 1.5rem; /* Add explicit top margin */
     margin-bottom: 2rem;
-    max-width: 550px;
-    position: relative; /* Make it position relative */
-    z-index: 1; /* Ensure it's above the role titles */
+    max-width: 90%;
+    line-height: 1.6;
+    position: relative;
+    z-index: 10;
+    transition: opacity 0.3s ease;
 }
 
 /* Terminal text that appears directly on the page */
@@ -1153,8 +1152,6 @@ background-clip: text;
     padding: 2rem;
     transition: all var(--transition-normal);
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .project-card:hover {
@@ -1872,6 +1869,199 @@ body::before {
     100% {
         transform: translate(0, 0);
     }
+}
+
+/* Highlight navigation links on scroll */
+.nav-link.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
+    opacity: 1;
+}
+
+/* Terminal Card Styles for Lab Section */
+.terminal-card {
+    background-color: rgba(15, 23, 42, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-normal);
+}
+
+.terminal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-card-header {
+    background-color: rgba(30, 41, 59, 0.95);
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.terminal-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.terminal-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(15, 23, 42, 0.7);
+}
+
+.terminal-status.online {
+    color: var(--success);
+}
+
+.terminal-card-content {
+    padding: 1rem;
+}
+
+/* Service tags with active indicators */
+.status-dot.active {
+    background-color: var(--success);
+    box-shadow: 0 0 5px var(--success);
+    animation: pulse 2s infinite;
+}
+
+/* Service tags with error indicators */
+.status-dot.error {
+    background-color: var(--error);
+    box-shadow: 0 0 5px var(--error);
+}
+
+/* Project Cards with Images */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
+}
+
+.project-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    background-color: rgba(15, 23, 42, 0.8);
+}
+
+.project-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    opacity: 0.7;
+}
+
+.project-card:hover .project-thumbnail {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.project-icon {
+    position: absolute;
+    bottom: -25px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--primary-bg);
+    z-index: 1;
+}
+
+.project-content {
+    padding: 1.5rem;
+    padding-top: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-links {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-link:hover {
+    color: var(--accent-darker);
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        height: 160px;
+    }
+}
+
+.btn-offline {
+    border-color: var(--error);
+    color: var(--error);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.btn-offline:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+    transform: translateY(-2px);
+}
+
+.offline-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: var(--error);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
 

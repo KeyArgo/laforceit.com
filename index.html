@@ -13,6 +13,16 @@
     <meta property="og:description" content="Expert in infrastructure architecture, DevOps automation, and secure cloud migrations. View my live lab dashboard and projects.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://laforceit.com">
+    <meta property="og:image" content="https://laforceit.com/images/og-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="LaForceIT.com">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daniel LaForce | Infrastructure & Systems Architect">
+    <meta name="twitter:description" content="Expert in infrastructure architecture, DevOps automation, and secure cloud migrations.">
+    <meta name="twitter:image" content="https://laforceit.com/images/og-preview.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -76,7 +86,6 @@
             <div class="intro-section">
                 <div class="name-section">
                     <h2 class="name">Daniel LaForce</h2>
-                    <span class="your-text">your</span>
                 </div>
                 
                 <h1 class="hero-title">
@@ -97,7 +106,7 @@
                 </h1>
                 
                 <p class="hero-description" id="role-description">
-                    Securing and optimizing your digital infrastructure with enterprise-grade solutions — from zero-trust architecture to automated security monitoring that keeps your business protected 24/7.
+                    Helping businesses run faster, safer, and smarter—through automated infrastructure, secure architecture, and real-world engineering.
                 </p>
                 
                 <div class="inline-terminal">
@@ -132,13 +141,13 @@
             </div>
             
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">
+                <a href="#contact" class="btn btn-primary btn-featured">
+                    <span class="pulse-ring"></span>
                     <span class="btn-text">Hire Me</span>
                     <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
                 </a>
                 
-                <a href="https://www.argobox.com" class="btn btn-outline btn-featured" target="_blank">
-                    <span class="pulse-ring"></span>
+                <a href="https://www.argobox.com" class="btn btn-outline" target="_blank">
                     <span class="btn-text">Explore My Lab</span>
                     <span class="btn-icon"><i class="fas fa-server"></i></span>
                 </a>
@@ -372,63 +381,83 @@
                                 <span>View Live Dashboard</span>
                             </span>
                         </a>
-                        <a href="https://argobox.com/ansible-sandbox" class="btn btn-outline" target="_blank">Try Ansible Sandbox</a>
+                        <a href="https://argobox.com/ansible-sandbox" class="btn btn-outline btn-offline" target="_blank">
+                            <span class="flex-center">
+                                <span class="offline-indicator"></span>
+                                <span>Ansible Sandbox (Offline)</span>
+                            </span>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="lab-card">
+                <div class="lab-card lab-metrics-card">
                     <h3 class="lab-card-title">Real-Time Metrics</h3>
                     
-                    <div class="metric">
-                        <div class="metric-header">
-                            <span class="metric-name">CPU Usage</span>
-                            <span class="metric-value">42%</span>
+                    <div class="terminal-card">
+                        <div class="terminal-card-header">
+                            <span class="terminal-title">System Status</span>
+                            <span class="terminal-status online">ONLINE</span>
                         </div>
-                        <div class="metric-bar">
-                            <div class="metric-progress" style="width: 42%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="metric">
-                        <div class="metric-header">
-                            <span class="metric-name">Memory</span>
-                            <span class="metric-value">57%</span>
-                        </div>
-                        <div class="metric-bar">
-                            <div class="metric-progress" style="width: 57%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="metric">
-                        <div class="metric-header">
-                            <span class="metric-name">Storage</span>
-                            <span class="metric-value">63%</span>
-                        </div>
-                        <div class="metric-bar">
-                            <div class="metric-progress" style="width: 63%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="metric">
-                        <div class="metric-header">
-                            <span class="metric-name">Network</span>
-                            <span class="metric-value">28%</span>
-                        </div>
-                        <div class="metric-bar">
-                            <div class="metric-progress" style="width: 28%"></div>
+                        <div class="terminal-card-content">
+                            <div class="metric">
+                                <div class="metric-header">
+                                    <span class="metric-name">CPU Usage</span>
+                                    <span class="metric-value">42%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-progress" style="width: 42%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric">
+                                <div class="metric-header">
+                                    <span class="metric-name">Memory</span>
+                                    <span class="metric-value">57%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-progress" style="width: 57%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric">
+                                <div class="metric-header">
+                                    <span class="metric-name">Storage</span>
+                                    <span class="metric-value">63%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-progress" style="width: 63%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric">
+                                <div class="metric-header">
+                                    <span class="metric-name">Network</span>
+                                    <span class="metric-value">28%</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-progress" style="width: 28%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <h4 class="lab-subtitle">Active Services:</h4>
                     <div class="services-grid-small">
-                        <div class="service-tag"><span class="status-dot"></span>Gitea</div>
-                        <div class="service-tag"><span class="status-dot"></span>VSCode Server</div>
-                        <div class="service-tag"><span class="status-dot"></span>rTorrent</div>
-                        <div class="service-tag"><span class="status-dot"></span>NAS</div>
-                        <div class="service-tag"><span class="status-dot"></span>Traefik</div>
-                        <div class="service-tag"><span class="status-dot"></span>K3s</div>
-                        <div class="service-tag"><span class="status-dot"></span>Cloudflared</div>
-                        <div class="service-tag"><span class="status-dot"></span>FileBrowser</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Gitea</div>
+                        <div class="service-tag"><span class="status-dot active"></span>VSCode Server</div>
+                        <div class="service-tag"><span class="status-dot active"></span>rTorrent</div>
+                        <div class="service-tag"><span class="status-dot active"></span>NAS</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Traefik</div>
+                        <div class="service-tag"><span class="status-dot active"></span>K3s</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Cloudflared</div>
+                        <div class="service-tag"><span class="status-dot active"></span>FileBrowser</div>
+                        <div class="service-tag"><span class="status-dot active"></span>OpenWebUI</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Ollama</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Obsidian Blog</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Obsidian Notes</div>
+                        <div class="service-tag"><span class="status-dot error"></span>Ansible Sandbox</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Jellyfin</div>
+                        <div class="service-tag"><span class="status-dot active"></span>Plex</div>
                     </div>
                 </div>
             </div>
@@ -597,7 +626,7 @@
                             <i class="fab fa-linkedin"></i>
                         </div>
                         <h3 class="contact-title">LinkedIn</h3>
-                        <p><a href="https://www.linkedin.com/in/daniellaforce" target="_blank">linkedin.com/in/daniellaforce</a></p>
+                        <p><a href="https://www.linkedin.com/in/danlaforce" target="_blank">linkedin.com/in/danlaforce</a></p>
                     </div>
                     
                     <div class="contact-item">
@@ -605,7 +634,7 @@
                             <i class="fab fa-github"></i>
                         </div>
                         <h3 class="contact-title">GitHub</h3>
-                        <p><a href="https://github.com/daniellaforce" target="_blank">github.com/daniellaforce</a></p>
+                        <p><a href="https://github.com/keyargo" target="_blank">github.com/danlaforce</a></p>
                     </div>
                 </div>
                 
@@ -664,10 +693,10 @@
                 </div>
                 
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/daniellaforce" target="_blank" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/danlaforce" target="_blank" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/daniellaforce" target="_blank" title="GitHub">
+                    <a href="https://github.com/keyargo" target="_blank" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="mailto:daniel@laforceit.com" title="Email">

@@ -19,6 +19,37 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         initFormHandling(contactForm);
     }
+    
+    // Highlight navigation on scroll
+    setupScrollSpy();
+    
+    // Setup role switching with improved timing
+    setupRoleSwitching();
+    
+    // Other initializations...
+    setupFloatingIcons();
+    setupParticles();
+    setupRevealAnimations();
+    initializeSlider();
+    
+    // Contact form handling
+    setupContactForm();
+    
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-menu').classList.toggle('active');
+    });
+    
+    // Navbar effects on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 });
 
 /**
@@ -461,3 +492,109 @@ function updateYear() {
         yearElement.textContent = new Date().getFullYear();
     }
 }
+
+/**
+ * Sets up scroll spy functionality to highlight nav links 
+ * as the user scrolls through different sections
+ */
+function setupScrollSpy() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', function() {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+/**
+ * Sets up automated role switching with better timing and transitions
+ */
+function setupRoleSwitching() {
+    const roles = document.querySelectorAll('.role');
+    const roleDescription = document.getElementById('role-description');
+    let currentRoleIndex = 0;
+    
+    // Initial role description
+    if (roles.length > 0 && roleDescription) {
+        roleDescription.textContent = roles[0].getAttribute('data-description');
+        roles[0].classList.add('active');
+    }
+    
+    // Switch roles every 5 seconds with fade transition
+    setInterval(() => {
+        // Remove active class from current role
+        roles[currentRoleIndex].classList.remove('active');
+        
+        // Move to the next role or back to the first
+        currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+        
+        // Add active class to new role
+        roles[currentRoleIndex].classList.add('active');
+        
+        // Update the role description with fade effect
+        if (roleDescription) {
+            roleDescription.style.opacity = '0';
+            
+            setTimeout(() => {
+                roleDescription.textContent = roles[currentRoleIndex].getAttribute('data-description');
+                roleDescription.style.opacity = '1';
+            }, 300);
+        }
+    }, 5000);
+}
+
+// Replace the existing setupFloatingIcons with this improved version
+function setupFloatingIcons() {
+    const container = document.getElementById('floating-icons');
+    if (!container) return;
+    
+    // Clear existing icons
+    container.innerHTML = '';
+    
+    // Tech icons to display
+    const icons = [
+        'fa-server', 'fa-network-wired', 'fa-shield-alt', 
+        'fa-cloud', 'fa-code-branch', 'fa-database',
+        'fa-laptop-code', 'fa-lock', 'fa-terminal'
+    ];
+    
+    // Create floating icons
+    icons.forEach(icon => {
+        const iconElement = document.createElement('div');
+        iconElement.className = 'floating-icon';
+        iconElement.innerHTML = `<i class="fas ${icon}"></i>`;
+        
+        // Random starting position
+        const randomX = Math.floor(Math.random() * 100);
+        const randomY = Math.floor(Math.random() * 100);
+        const randomDelay = Math.random() * 5;
+        const randomDuration = 20 + Math.random() * 10;
+        
+        // Apply styles
+        iconElement.style.left = `${randomX}%`;
+        iconElement.style.top = `${randomY}%`;
+        iconElement.style.animationDelay = `${randomDelay}s`;
+        iconElement.style.animationDuration = `${randomDuration}s`;
+        
+        // Add to container
+        container.appendChild(iconElement);
+    });
+}
+
+// More existing code...
